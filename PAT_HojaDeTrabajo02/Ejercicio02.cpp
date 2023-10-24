@@ -3,7 +3,8 @@
 Node<int>* Ejercicio02::addTwoNumbers(Node<int>* l1, Node<int>* l2)
 {
     int resto = 0;
-    Node<int>* LS;
+    Node<int>* LS = nullptr;
+    Node<int>* LR = nullptr;
     
     while (l1 || l2 || resto)
     {
@@ -19,11 +20,21 @@ Node<int>* Ejercicio02::addTwoNumbers(Node<int>* l1, Node<int>* l2)
             l2 = l2->next;
         }
 
-        resto = suma / 10;
         //LS->next = new Node<int>(suma % 10);
-
-
+        resto = suma / 10;
+        int dato = suma % 10;
+        Node<int>* newNode = new Node<int>{ dato };
+        if (LR == nullptr)
+        {
+            LR =  newNode;
+            LS = LR;
+        }
+        else
+        {
+            LS->next = newNode;
+            LS = LS->next;
+        }
     }
 
-    return nullptr;
+    return LR;
 }

@@ -1,6 +1,18 @@
 #pragma once
 class FrontMiddleBackQueue
 {
+private:
+	struct Node {
+		int valor;
+		Node* prev;
+		Node* next;
+	};
+
+	Node* Primero;
+	Node* Mitad;
+	Node* Ultimo;
+	int count;
+
 public:
 	FrontMiddleBackQueue();
 
